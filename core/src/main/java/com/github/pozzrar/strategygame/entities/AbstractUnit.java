@@ -6,6 +6,7 @@ public abstract class AbstractUnit {
     private int quantity;
     private int actions;
     private int armour;
+    private Tile tile;
     // TODO: Александр - пишет юнитов
     // TODO: методы атаки, урона,
 
@@ -21,5 +22,13 @@ public abstract class AbstractUnit {
 
     public void setRange(int range) {
         this.range = range;
+    }
+
+    public void setArmour(int armour) {
+        this.armour = armour;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

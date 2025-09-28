@@ -1,13 +1,11 @@
-package com.github.pozzrar.strategygame.entities;
+package com.github.pozzrar.strategygame.interaction;
+
+import com.github.pozzrar.strategygame.entities.Tile;
+import com.github.pozzrar.strategygame.entities.Unit;
 
 public class PropertiesChanger {
-    private final Tile tile;
+    private Tile tile;
     private Unit unit;
-
-    public PropertiesChanger(Tile tile, Unit unit) {
-        this.tile = tile;
-        this.unit = unit;
-    }
 
     public void changeProperties() {
         // TODO: здесь можно будет менять порядок изменения параметров юнита
