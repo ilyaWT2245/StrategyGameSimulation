@@ -12,7 +12,8 @@ public class Tile {
         "Hill",
     };
 
-    private final int[] coordinates;
+    private final int coordinateX;
+    private final int coordinateY;
     private HashMap<String, Boolean> tileProperties = new HashMap<>();
 
     // ------------КОНСТРУКТОРЫ--------------
@@ -23,7 +24,8 @@ public class Tile {
     }
 
     public Tile(String[] types, int x, int y) {
-        coordinates = new int[]{x, y};
+        coordinateX = x;
+        coordinateY = y;
         for (String type : TILE_TYPES) {
             boolean hasProperty = false;
             for (String property : types) {
@@ -55,9 +57,13 @@ public class Tile {
     }
 
     public int getX() {
-        return coordinates[0];
+        return coordinateX;
     }
     public int getY() {
-        return coordinates[1];
+        return coordinateY;
+    }
+
+    public HashMap<String, Boolean> getTileProperties() {
+        return tileProperties;
     }
 }
