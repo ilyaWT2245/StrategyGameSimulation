@@ -6,7 +6,7 @@ public abstract class AbstractUnit {
     private int quantity;
     private int actions;
     private int armour;
-    private Tile tile;
+    private Cell tile;
     // TODO: Александр - пишет юнитов
     // TODO: методы атаки, урона,
 

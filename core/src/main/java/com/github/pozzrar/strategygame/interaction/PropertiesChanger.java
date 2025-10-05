@@ -1,10 +1,10 @@
 package com.github.pozzrar.strategygame.interaction;
 
-import com.github.pozzrar.strategygame.entities.Tile;
+import com.github.pozzrar.strategygame.entities.Cell;
 import com.github.pozzrar.strategygame.entities.Unit;
 
 public class PropertiesChanger {
-    private Tile tile;
+    private Cell tile;
     private Unit unit;
 
     public void changeProperties() {

@@ -4,7 +4,7 @@ public class GameMap {
     private final int MAP_WIDTH = 20;
     private final int MAP_HEIGHT = 20;
 
-    private Tile[][] tileMap = new Tile[MAP_WIDTH][MAP_HEIGHT];
+    private Cell[][] cellMap = new Cell[MAP_WIDTH][MAP_HEIGHT];
     // ------------КОНСТРУКТОРЫ--------------
 
     public GameMap() {
