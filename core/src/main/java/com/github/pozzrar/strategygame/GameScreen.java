@@ -4,7 +4,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.pozzrar.strategygame.entities.AbstractMapLoader;
-import com.github.pozzrar.strategygame.entities.MapLoader;
 
 public class GameScreen extends ScreenAdapter {
     private final GDXGame game;

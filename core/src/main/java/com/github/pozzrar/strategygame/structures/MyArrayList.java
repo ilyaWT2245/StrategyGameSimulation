@@ -111,10 +111,9 @@ public class MyArrayList<E> implements MyList<E>{
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public boolean remove(Object o) {
-        int index = getIndexOf((E) o);
+    public boolean remove(E o) {
+        int index = getIndexOf(o);
         for (int i = index; i < size; i++) {
             elementsData[i] = (i == size - 1) ? null : elementsData[i + 1];
         }

@@ -152,7 +152,7 @@ public class MyLinkedList<E> implements MyList<E>{
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(E o) {
         for (Node<E> node = head; node != null; node = node.next) {
             if (o.equals(node.value)) {
                 if (node == head) {

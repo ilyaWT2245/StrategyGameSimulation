@@ -9,7 +9,7 @@ public interface MyCollection<E> extends Iterable<E>{
 
     boolean add(E e);
 
-    boolean remove(Object o);
+    boolean remove(E e);
 
     E get(int i);
 
