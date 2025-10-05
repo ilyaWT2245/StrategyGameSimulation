@@ -1,7 +1,7 @@
 package com.github.pozzrar.strategygame.structures;
 
-import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MyLinkedList<E> implements MyList<E>{
     Node<E> head;
@@ -34,7 +34,7 @@ public class MyLinkedList<E> implements MyList<E>{
         size = 0;
     }
 
-    public MyLinkedList(Collection<? extends E> c) {
+    public MyLinkedList(MyCollection<? extends E> c) {
         this();
         addAll(c);
     }
@@ -57,6 +57,7 @@ public class MyLinkedList<E> implements MyList<E>{
         return tail != null ? tail.value : null;
     }
 
+    @Override
     public E get(int index) {
         Node<E> node = getNode(index);
         return node != null ? node.value : null;
@@ -101,6 +102,7 @@ public class MyLinkedList<E> implements MyList<E>{
     public Iterator<E> iterator() {
         return new Iterator<>() {
             Node<E> cur = head;
+            Node<E> last;
 
             @Override
             public boolean hasNext() {
@@ -109,17 +111,14 @@ public class MyLinkedList<E> implements MyList<E>{
 
             @Override
             public E next() {
+                last = cur;
                 cur = cur.next;
-                return cur.value;
+                return last.value;
             }
         };
     }
 
-    @Override
-    public Object[] toArray() {
-        return this.toArray(new Object[size]);
-    }
-
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T[] toArray(T[] a) {
         int cur = 0;
@@ -129,11 +128,13 @@ public class MyLinkedList<E> implements MyList<E>{
         return a;
     }
 
-    public boolean addLast(E e) {
+    @Override
+    public boolean add(E e) {
         if (size == 0) {
             head = tail = new Node<>(e);
         } else {
             tail = new Node<>(null, tail, e);
+            tail.prev.next = tail;
         }
         size++;
         return true;
@@ -144,14 +145,10 @@ public class MyLinkedList<E> implements MyList<E>{
             head = tail = new Node<>(e);
         } else {
             head = new Node<>(head, null, e);
+            head.next.prev = head;
         }
         size++;
         return true;
-    }
-
-    @Override
-    public boolean add(E e) {
-        return addLast(e);
     }
 
     @Override
@@ -160,15 +157,14 @@ public class MyLinkedList<E> implements MyList<E>{
             if (o.equals(node.value)) {
                 if (node == head) {
                     pop();
-                    return true;
                 } else {
                     node.prev.next = node.next;
                     if (node.next != null) {
                         node.next.prev = node.prev;
                     }
                     size--;
-                    return true;
                 }
+                return true;
             }
         }
         return false;
@@ -179,31 +175,16 @@ public class MyLinkedList<E> implements MyList<E>{
 
         E value = head.value;
         head = head.next;
+        head.prev = null;
         return value;
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        boolean out = false;
+    public boolean addAll(MyCollection<? extends E> c) {
         for (E e: c) {
-            out = addLast(e);
+            add(e);
         }
-        return out;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
+        return !c.isEmpty();
     }
 
     @Override
