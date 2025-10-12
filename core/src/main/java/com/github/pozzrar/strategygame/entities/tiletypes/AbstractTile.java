@@ -4,7 +4,6 @@ public abstract class AbstractTile {
     private final double coverFactor;
     private final double densityFactor;
     private final double heightFactor;
-    private boolean hasUnit;
 
     protected AbstractTile(double coverFactor, double densityFactor, double heightFactor) {
         this.coverFactor = coverFactor;

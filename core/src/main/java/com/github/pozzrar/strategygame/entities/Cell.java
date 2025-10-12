@@ -6,6 +6,7 @@ public class Cell {
     private final AbstractTile tileType;
     private final int coordinateX;
     private final int coordinateY;
+    private boolean hasUnit;
 
     // ------------КОНСТРУКТОРЫ--------------
 
