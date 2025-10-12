@@ -6,15 +6,8 @@ public abstract class AbstractUnit {
     private int quantity;
     private int actions;
     private int armour;
-    private Cell tile;
+    private Cell cell;
     // TODO: Александр - пишет юнитов
-    // TODO: методы атаки, урона,
-
-
-    public AbstractUnit(double damage, int range) {
-        this.damage = damage;
-        this.range = range;
-    }
 
     public void setDamage(double damage) {
         this.damage = damage;
@@ -30,5 +23,37 @@ public abstract class AbstractUnit {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public void setActions(int actions) {
+        this.actions = actions;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public double getDamage() {
+        return damage;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public int getArmour() {
+        return armour;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getActions() {
+        return actions;
     }
 }

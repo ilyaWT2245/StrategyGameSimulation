@@ -1,7 +1,9 @@
 package com.github.pozzrar.strategygame.entities;
 
+import com.github.pozzrar.strategygame.entities.tiletypes.AbstractTile;
+
 public class Cell {
-    private final Tile tileType;
+    private final AbstractTile tileType;
     private final int coordinateX;
     private final int coordinateY;
 
@@ -12,7 +14,7 @@ public class Cell {
         this(null, x, y);
     }
 
-    public Cell(Tile type, int x, int y) {
+    public Cell(AbstractTile type, int x, int y) {
         coordinateX = x;
         coordinateY = y;
         tileType = type;
@@ -28,7 +30,7 @@ public class Cell {
         return coordinateY;
     }
 
-    public Tile getTileType() {
+    public AbstractTile getTileType() {
         return tileType;
     }
 }
