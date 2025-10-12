@@ -1,22 +1,32 @@
 package com.github.pozzrar.strategygame.interaction;
 
-import com.github.pozzrar.strategygame.entities.Unit;
+import com.github.pozzrar.strategygame.entities.AbstractUnit;
 
 public class UnitInteraction {
-    private Unit activeUnit;
-    private Unit unitToChange;
-    private PropertiesChanger propertiesChanger;
+    private AbstractUnit activeUnit;
+    private AbstractUnit unitToChange;
 
     // TODO: разные методы взаимодействия юнитов
-    public void attack() {
+    public void attack(AbstractUnit attacker, AbstractUnit victim) {
+        // TODO: добавить формулу вычисления дамага
+        if (canInteract()) {
+            int damage = 0; // заглушка
+            victim.setQuantity(victim.getQuantity() - damage);
+        }
 
+        attacker.setActions(attacker.getActions() - 1);
     }
 
-    public void setActiveUnit(Unit activeUnit) {
+    private boolean canInteract() {
+        // TODO: сделать проверку может ли юнит взаимодействовать с другим(хватает ли дальности, есть ли ходы)
+        return true;
+    }
+
+    public void setActiveUnit(AbstractUnit activeUnit) {
         this.activeUnit = activeUnit;
     }
 
-    public void setUnitToChange(Unit unitToChange) {
+    public void setUnitToChange(AbstractUnit unitToChange) {
         this.unitToChange = unitToChange;
     }
 }

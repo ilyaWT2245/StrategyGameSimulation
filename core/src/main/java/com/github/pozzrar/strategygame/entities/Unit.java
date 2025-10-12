@@ -1,7 +1,7 @@
 package com.github.pozzrar.strategygame.entities;
 
 public class Unit extends AbstractUnit{
-    public Unit(double damage, int range) {
-        super(damage, range);
+    protected Unit(double baseDamage, int baseRange, int baseArmour) {
+        super(baseDamage, baseRange, baseArmour);
     }
 }

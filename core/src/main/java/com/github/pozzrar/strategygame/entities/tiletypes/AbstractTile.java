@@ -1,10 +1,16 @@
 package com.github.pozzrar.strategygame.entities.tiletypes;
 
 public abstract class AbstractTile {
-    private double coverFactor = 1;
-    private double densityFactor = 1;
-    private double heightFactor = 1;
-    private boolean hasUnit = false;
+    private final double coverFactor;
+    private final double densityFactor;
+    private final double heightFactor;
+    private boolean hasUnit;
+
+    protected AbstractTile(double coverFactor, double densityFactor, double heightFactor) {
+        this.coverFactor = coverFactor;
+        this.densityFactor = densityFactor;
+        this.heightFactor = heightFactor;
+    }
 
     public double getCoverFactor() {
         return coverFactor;

@@ -1,25 +1,25 @@
 package com.github.pozzrar.strategygame.entities;
 
 public abstract class AbstractUnit {
-    private double damage;
-    private int range;
+    private final double baseDamage;
+    private final  int baseRange;
+    private final int baseArmour;
+
+    // эти свойства зависят от тайла, на котором находится юнит
+    private double realDamage;
+    private int realRange;
+    private int realArmour;
+
     private int quantity;
     private int actions;
-    private int armour;
     private Cell cell;
+
+    protected AbstractUnit(double baseDamage, int baseRange, int baseArmour) {
+        this.baseDamage = baseDamage;
+        this.baseRange = baseRange;
+        this.baseArmour = baseArmour;
+    }
     // TODO: Александр - пишет юнитов
-
-    public void setDamage(double damage) {
-        this.damage = damage;
-    }
-
-    public void setRange(int range) {
-        this.range = range;
-    }
-
-    public void setArmour(int armour) {
-        this.armour = armour;
-    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -33,20 +33,32 @@ public abstract class AbstractUnit {
         this.cell = cell;
     }
 
+    public void setRealArmour(int realArmour) {
+        this.realArmour = realArmour;
+    }
+
+    public void setRealDamage(double realDamage) {
+        this.realDamage = realDamage;
+    }
+
+    public void setRealRange(int realRange) {
+        this.realRange = realRange;
+    }
+
     public Cell getCell() {
         return cell;
     }
 
-    public double getDamage() {
-        return damage;
+    public double getBaseDamage() {
+        return baseDamage;
     }
 
-    public int getRange() {
-        return range;
+    public int getBaseRange() {
+        return baseRange;
     }
 
-    public int getArmour() {
-        return armour;
+    public int getBaseArmour() {
+        return baseArmour;
     }
 
     public int getQuantity() {

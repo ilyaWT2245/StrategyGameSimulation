@@ -1,8 +1,6 @@
 package com.github.pozzrar.strategygame.interaction;
 
 import com.github.pozzrar.strategygame.entities.AbstractUnit;
-import com.github.pozzrar.strategygame.entities.Cell;
-import com.github.pozzrar.strategygame.entities.Unit;
 
 public class PropertiesChanger {
     private AbstractUnit unit;
@@ -27,12 +25,14 @@ public class PropertiesChanger {
     }
 
     private void changeArmour() {
-        unit.setArmour((int) (unit.getArmour() * unit.getCell().getTileType().getCoverFactor()));
+        double factor = unit.getCell().getTileType().getCoverFactor();
+        unit.setRealArmour((int) (unit.getBaseArmour() * factor));
     }
 
     private void changeActions() {
         // TODO: поиграться с формулой
 
-        unit.setActions((int) (unit.getActions() - Math.log(unit.getCell().getTileType().getDensityFactor())));
+        int reduce = (int) Math.log(unit.getCell().getTileType().getDensityFactor());
+        unit.setActions(unit.getActions() - reduce);
     }
 }
