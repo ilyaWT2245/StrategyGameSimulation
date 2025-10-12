@@ -9,7 +9,7 @@ public class Cell {
 
     // Пустая клетка
     public Cell(int x, int y) {
-        this(Tile.PLAIN, x, y);
+        this(null, x, y);
     }
 
     public Cell(Tile type, int x, int y) {

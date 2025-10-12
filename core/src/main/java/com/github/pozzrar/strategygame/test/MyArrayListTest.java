@@ -177,6 +177,7 @@ class MyArrayListTest {
         smallList.add(2);
         smallList.add(3); // Должно вызвать extend()
 
+
         assertEquals(3, smallList.size());
         assertEquals(1, smallList.get(0));
         assertEquals(2, smallList.get(1));

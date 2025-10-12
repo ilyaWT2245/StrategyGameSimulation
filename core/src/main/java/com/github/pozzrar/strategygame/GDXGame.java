@@ -34,8 +34,8 @@ public class GDXGame extends Game {
         this.viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         this.mapLoader = new MapLoader(new GameMap());
 
-        addScreen(new GameScreen(this));
-        setScreen(GameScreen.class);
+        addScreen(new FirstScreen());
+        setScreen(FirstScreen.class);
     }
 
     @Override

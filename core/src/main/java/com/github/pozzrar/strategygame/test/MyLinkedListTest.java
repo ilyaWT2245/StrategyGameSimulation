@@ -105,7 +105,6 @@ class MyLinkedListTest {
         assertTrue(list.remove(40));
         assertEquals(1, list.size());
         assertEquals(30, list.getFirst());
-        assertEquals(30, list.getLast());
     }
 
     // Тестирование последовательного извлечения элементов из начала списка

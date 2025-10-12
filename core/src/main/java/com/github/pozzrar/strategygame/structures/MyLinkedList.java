@@ -67,12 +67,12 @@ public class MyLinkedList<E> implements MyList<E>{
         Node<E> cur;
         if (index > size/2) {
             cur = tail;
-            for (int i = size - 1; i != index; i--) {
+            for (int i = size - 1; i > index; i--) {
                 cur = cur.prev;
             }
         } else {
             cur = head;
-            for (int i = 0; i != index; i++) {
+            for (int i = 0; i < index; i++) {
                 cur = cur.next;
             }
         }
@@ -89,7 +89,7 @@ public class MyLinkedList<E> implements MyList<E>{
             }
         } else {
             for (Node<E> node = head; node != null; node = node.next) {
-                if (node.value.equals(o)) {
+                if (o.equals(node.value)) {
                     return true;
                 }
             }
@@ -124,6 +124,7 @@ public class MyLinkedList<E> implements MyList<E>{
         int cur = 0;
         for (Node<E> node = head; node != null; node = node.next) {
             a[cur] = (T) node.value;
+            cur++;
         }
         return a;
     }
@@ -175,7 +176,12 @@ public class MyLinkedList<E> implements MyList<E>{
 
         E value = head.value;
         head = head.next;
-        head.prev = null;
+        if (head != null) {
+            head.prev = null;
+        } else {
+            tail = null;
+        }
+        size--;
         return value;
     }
 

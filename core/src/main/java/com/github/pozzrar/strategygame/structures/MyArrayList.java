@@ -22,8 +22,8 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     public MyArrayList(MyCollection<? extends E> c) {
+        this();
         addAll(c);
-        size = c.size();
     }
 
     @Override
@@ -114,7 +114,7 @@ public class MyArrayList<E> implements MyList<E>{
     @Override
     public boolean remove(E o) {
         int index = getIndexOf(o);
-        for (int i = index; i < size; i++) {
+        for (int i = index; i < size && i >= 0; i++) {
             elementsData[i] = (i == size - 1) ? null : elementsData[i + 1];
         }
         size = index < 0 ? size : size - 1;
